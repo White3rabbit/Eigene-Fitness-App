@@ -49,7 +49,3 @@ Zirkel: 4 Runden, zwischen den Übungen kaum Pause, nach jeder Runde 90 s.
 
 - **Gewichte:** Wenn du 12 Wiederholungen sauber schaffst, nächstes Mal 2.5 kg mehr (Beine 5 kg). Die App belegt das neue Gewicht automatisch vor.
 - **Seilspringen:** Rekord notieren, Ziel +5–10 pro Woche. Von 70 kommst du so in zwei Monaten Richtung 150.
-
-## Körperdaten (Kalorienschätzung)
-
-185 cm, 98 kg (in den Einstellungen der App änderbar).

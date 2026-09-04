@@ -27,7 +27,7 @@
   const MUSCLES = ['Beine', 'Gesäss', 'Rücken', 'Brust', 'Schultern', 'Arme', 'Core', 'Ausdauer', 'Ganzkörper', 'Beweglichkeit'];
   const DEFAULT_SETTINGS = {
     theme: 'auto', vibrate: true, sound: false, restTimer: true, keepAwake: true,
-    bodyWeight: 98, bodyHeight: 185,
+    bodyWeight: null, bodyHeight: null,
   };
 
   const viewEl = document.getElementById('view');
@@ -213,7 +213,8 @@
     return ex.type === 'time' ? 4 : 5;
   }
   function estimateKcal(exercises, bodyWeight) {
-    const kg = bodyWeight || 80;
+    const kg = num(bodyWeight, null);
+    if (!kg) return null;
     let metMinutes = 0;
     exercises.forEach((ex) => {
       const met = ex.met || 5;
@@ -587,7 +588,7 @@
       sw('keepAwake', 'Bildschirm anlassen', 'Während eines laufenden Trainings nicht abdunkeln') + '</section>';
     html += '<section class="card"><h2>Darstellung</h2><div class="seg">' +
       [['auto', 'System'], ['light', 'Hell'], ['dark', 'Dunkel']].map((o) => '<label><input type="radio" name="theme" data-setting="theme" value="' + o[0] + '"' + (s.theme === o[0] ? ' checked' : '') + '><span>' + o[1] + '</span></label>').join('') + '</div></section>';
-    html += '<section class="card form"><h2>Körperdaten</h2><p class="help">Für die grobe Kalorienschätzung pro Training.</p><div class="field-grid">' +
+    html += '<section class="card form"><h2>Körperdaten</h2><p class="help">Optional, nur für die grobe Kalorienschätzung pro Training. Bleibt wie alles andere auf diesem Gerät.</p><div class="field-grid">' +
       '<div class="field"><label for="s-weight">Gewicht (kg)</label><input type="number" id="s-weight" inputmode="decimal" step="0.5" data-setting="bodyWeight" value="' + attr(s.bodyWeight || '') + '"></div>' +
       '<div class="field"><label for="s-height">Grösse (cm)</label><input type="number" id="s-height" inputmode="numeric" data-setting="bodyHeight" value="' + attr(s.bodyHeight || '') + '"></div></div>' +
       (bmi ? '<p class="help">BMI ' + bmi + '</p>' : '') + '</section>';
@@ -734,7 +735,7 @@
     const kcal = estimateKcal(exercises, state.settings.bodyWeight);
     const ok = await confirmDialog({
       title: 'Training abschliessen?',
-      text: c.done + ' von ' + c.total + ' Sätzen · ' + fmtMin(Date.now() - s.startedAt) + ' · ≈ ' + kcal + ' kcal (grobe Schätzung)',
+      text: c.done + ' von ' + c.total + ' Sätzen · ' + fmtMin(Date.now() - s.startedAt) + (kcal ? ' · ≈ ' + kcal + ' kcal (grobe Schätzung)' : ''),
       ok: 'Speichern',
     });
     if (!ok) return;

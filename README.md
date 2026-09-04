@@ -22,7 +22,7 @@ Kein Server, kein Konto, keine Abhängigkeiten. Reines HTML, CSS und JavaScript.
 - **Training durchführen**: pro Satz Gewicht und Wiederholungen eintragen und mit ✓ bestätigen. Fortschrittsbalken, «Alle bestätigen» pro Übung, Technik-Hinweise aufklappbar.
 - **Pausen-Timer** startet automatisch nach jedem bestätigten Satz (mit Vibration, optional Ton). Für Zeit-Übungen (Plank, Seilspringen, Stepper) gibt es einen ▶-Timer für die Belastungszeit.
 - **Zwischenspeicher**: Ein laufendes Training bleibt beim Schliessen des Browsers erhalten, inklusive Timer. Auf der Startseite steht «Fortsetzen».
-- **Verlauf** aller abgeschlossenen Trainings mit jedem Satz, Dauer und Kalorienschätzung.
+- **Verlauf** aller abgeschlossenen Trainings mit jedem Satz, Dauer und optionaler Kalorienschätzung.
 - **Letztes Mal** und **Rekord** direkt an der Übung. Die App schlägt das nächste Gewicht nach deiner Steigerungsregel vor.
 - **Editor** für Tage und Übungen: Name, Muskelgruppe, Piktogramm oder eigenes Foto (Kamera/Galerie), Sätze, Wiederholungen oder Zeit, Gewicht, Pause, Steigerung, Abschnitte (z.B. «Zirkel · 4 Runden»), Reihenfolge.
 - **Sicherung** als JSON-Datei exportieren und importieren (inklusive Fotos).
@@ -67,7 +67,7 @@ Danach startet die App wie eine normale App, ohne Browserleiste, und funktionier
 | **Trainingstag** | Pro Satz Gewicht/Wiederholungen eintragen und ✓ drücken. Nach dem Satz läuft die Pause. Unten «Training abschliessen». |
 | **Verlauf** | Abgeschlossene Trainings aufklappen, Einträge löschen. |
 | **Bearbeiten** | Programmname, Regeln, Tage und Übungen anpassen. Reihenfolge mit ↑↓. |
-| **Einstellungen** | Timer, Vibration, Ton, Design, Körperdaten, Sicherung exportieren/importieren, Beispielprogramm zurücksetzen. |
+| **Einstellungen** | Timer, Vibration, Ton, Design, Körperdaten (optional, für Kalorien), Sicherung exportieren/importieren, Beispielprogramm zurücksetzen. |
 
 Bei Übungen mit Wiederholungsbereich (z.B. 10–12) wird die Wiederholungszahl aus dem letzten Training vorbelegt, das Gewicht ebenfalls. Bei Zeit-Übungen steht die Zielzeit im Feld; ▶ startet den Countdown.
 
@@ -118,7 +118,7 @@ Der aktuelle Plan ist zusätzlich als lesbare Tabelle in [`docs/trainingsplan.md
 
 ## So funktioniert der Speicher
 
-Alle Daten bleiben auf dem Gerät. Es wird nichts hochgeladen.
+Alle Daten bleiben auf dem Gerät. Es wird nichts hochgeladen. Auch wenn die App über GitHub Pages öffentlich erreichbar ist, sieht jeder Besucher nur das leere Beispielprogramm; Gewichte, Verlauf, Fotos und Körperdaten existieren nur im Browser-Speicher deines Handys.
 
 | Speicher | Inhalt | Hinweis |
 |---|---|---|
@@ -136,7 +136,7 @@ Alle Daten bleiben auf dem Gerät. Es wird nichts hochgeladen.
 
 **Rekorde:** Bei Übungen mit `track: 'max'` (Seilspringen) zeigt die App den bisherigen Rekord und das Wochenziel (+5 bis +10).
 
-**Kalorien:** Beim Abschliessen und im Verlauf steht eine grobe Schätzung nach MET-Werten (Belastung × Körpergewicht × Zeit). Körpergewicht und Grösse stehen in den Einstellungen (voreingestellt 98 kg, 185 cm). Die Zahl ist eine Orientierung, kein Messwert.
+**Kalorien:** Beim Abschliessen und im Verlauf steht eine grobe Schätzung nach MET-Werten (Belastung × Körpergewicht × Zeit). Dafür trägst du dein Körpergewicht einmal in den Einstellungen ein; ohne Angabe wird keine Schätzung angezeigt. Die Zahl ist eine Orientierung, kein Messwert.
 
 ## Projektstruktur
 

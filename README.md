@@ -32,8 +32,8 @@ Kein Server, kein Konto, keine Abhängigkeiten. Reines HTML, CSS und JavaScript.
 
 ### Variante A: GitHub Pages (empfohlen)
 
-1. Diesen Branch in `main` mergen (oder direkt auf `main` arbeiten).
-2. Auf GitHub: **Settings → Pages → Build and deployment → Source: «Deploy from a branch»**, Branch `main`, Ordner `/ (root)`, speichern.
+1. Auf GitHub: **Settings → Pages → Build and deployment → Source: «Deploy from a branch»**.
+2. Als Branch den Standard-Branch wählen (aktuell `claude/visual-training-program-mobile-eh94gq`; du kannst ihn unter Settings → Branches auch in `main` umbenennen), Ordner `/ (root)`, speichern.
 3. Nach ein bis zwei Minuten ist die App erreichbar unter
    `https://white3rabbit.github.io/Eigene-Fitness-App/`
 4. Diese Adresse auf dem Handy öffnen und installieren (siehe unten).
